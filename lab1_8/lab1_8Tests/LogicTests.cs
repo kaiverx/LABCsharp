@@ -61,3 +61,4 @@ namespace NumberComparison.Tests
             Assert.AreEqual(80.0, percent, 0.01, "Процент букв должен быть примерно 80%");
         }
     }
+}
