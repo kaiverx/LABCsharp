@@ -4,11 +4,18 @@
     {
         public static double Percent(string sentence)
         {
+            // Проверяем, если строка пуста
+            if (string.IsNullOrEmpty(sentence))
+            {
+                return 0.0;
+            }
 
-            int letterCount = sentence.Count(char.IsLetter); 
-            int totalCount = sentence.Length;
+            // Подсчитываем количество букв в предложении
+            int letterCount = sentence.Count(char.IsLetter);
+            int totalCount = sentence.Length; // Общее количество символов в строке
 
-            double percent =  (double)letterCount / totalCount * 100;
+            // Если строка не пуста, рассчитываем процент букв
+            double percent = (double)letterCount / totalCount * 100;
             return percent;
         }
     }
@@ -20,6 +27,7 @@
             Console.WriteLine("Введите предложение: ");
             string sentence = Console.ReadLine();
 
+            // Получаем процент букв
             double percent = Logic.Percent(sentence);
 
             Console.WriteLine($"Доля букв в предложении: {percent:F2}%");

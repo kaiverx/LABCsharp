@@ -18,7 +18,8 @@ namespace NumberComparison.Tests
             string sentence = "Hello World!";
             double percent = Logic.Percent(sentence);
 
-            Assert.AreEqual(84.62, percent, 0.01, "Процент букв должен быть примерно 84.62%");
+            // Ожидаемый процент: 10 букв, длина строки = 12 символов
+            Assert.AreEqual(83.33, percent, 0.01, "Процент букв должен быть примерно 83.33%");
         }
 
         // Тест для строки только с буквами
@@ -28,7 +29,7 @@ namespace NumberComparison.Tests
             string sentence = "Hello";
             double result = Logic.Percent(sentence);
 
-            Assert.AreEqual(100.0, result, "Процент букв должен быть 100% для строки из букв");
+            Assert.AreEqual(100.0, result, 0.01, "Процент букв должен быть 100% для строки из букв");
         }
 
         // Тест для строки без букв (только пробелы и знаки препинания)
@@ -38,7 +39,7 @@ namespace NumberComparison.Tests
             string sentence = "   !!!";
             double percent = Logic.Percent(sentence);
 
-            Assert.AreEqual(0.0, percent, "Процент букв должен быть 0% для строки без букв");
+            Assert.AreEqual(0.0, percent, 0.01, "Процент букв должен быть 0% для строки без букв");
         }
 
         // Тест для пустой строки
@@ -48,7 +49,7 @@ namespace NumberComparison.Tests
             string sentence = "";
             double percent = Logic.Percent(sentence);
 
-            Assert.AreEqual(0.0, percent, "Процент букв должен быть 0% для пустой строки");
+            Assert.AreEqual(0.0, percent, 0.01, "Процент букв должен быть 0% для пустой строки");
         }
 
         // Тест для строки с цифрами и буквами
@@ -58,7 +59,7 @@ namespace NumberComparison.Tests
             string sentence = "Hello123";
             double percent = Logic.Percent(sentence);
 
-            Assert.AreEqual(80.0, percent, 0.01, "Процент букв должен быть примерно 80%");
+            Assert.AreEqual(62.5, percent, 0.01, "Процент букв должен быть примерно 62.5%");
         }
     }
 }
